@@ -7,13 +7,12 @@ var confirmSpecial;
 var userChoices;
 
 var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-// Var To Upper Case ------------
+// Var To Upper Case 
 var blankUpper = [];
 var toUpper = function (x) {
     return x.toUpperCase();
 };
 upperCase = lowerCase.map(toUpper);
-//--------------------------------------
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var special = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 
@@ -32,40 +31,40 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-// Start Function
+// Generate password Function
 function generatePassword() {
-    // Ask four user Input
-    passwordLength = prompt("How many characters would you like your password? Choose between 8 and 128");
+    // Ask the user to pick a criteria
+    passwordLength = prompt("How many characters would you like your password to be? Choose between 8 and 128");
     console.log("Password length " + passwordLength);
 
     if (!passwordLength) {
-        alert("Required value");
+        alert("please choose a number");
 
     } else if (passwordLength < 8 || passwordLength > 128) {
-        passwordLength = prompt("You must choose between 8 and 128");
+        passwordLength = prompt("Password must be between 8 and 128 charecters");
         console.log("Password length " + passwordLength);
 
     } else {
-        confirmLower = confirm("Will this contain lower case letters?");
+        confirmLower = confirm("would you like your password to have lowercase letters?");
         console.log("Lower case " + confirmLower);
-        confirmUpper = confirm("Will this contain upper case letters?");
+        confirmUpper = confirm("would you like your password to have upper case letters?");
         console.log("Upper case " + confirmUpper);
-        confirmNumber = confirm("Will this contain numbers?");
+        confirmNumber = confirm("Would you like your password to have numbers?");
         console.log("Number " + confirmNumber);
-        confirmSpecial = confirm("Will this contain special characters?");
+        confirmSpecial = confirm("would you like your password to have special characters?");
         console.log("Special Character " + confirmSpecial);
 
     };
 
-    // No answer then
+    // if the user doesnt choose
     if (!confirmLower && !confirmUpper && !confirmNumber && !confirmSpecial) {
         userChoices = alert("You must choose a criteria");
-        // 4 true options
+        // if the user picks 4 criterias
     } else if (confirmLower && confirmUpper && confirmNumber && confirmSpecial) {
         userChoices = lowerCase.concat(upperCase, numbers, special);
         console.log(userChoices);
     }
-    // 3 true options
+    // if the user picks 3
     else if (confirmLower && confirmUpper && confirmNumber) {
         userChoices = lowerCase.concat(upperCase, numbers);
         console.log(userChoices);
@@ -82,7 +81,7 @@ function generatePassword() {
         userChoices = upperCase.concat(numbers, special);
         console.log(userChoices);
     }
-    // 2 true options
+    // if the user picks 2
     else if (confirmLower && confirmUpper) {
         userChoices = lowerCase.concat(upperCase);
         console.log(userChoices);
@@ -107,7 +106,7 @@ function generatePassword() {
         userChoices = numbers.concat(special);
         console.log(userChoices);
     }
-    // 1 true option
+    // if 1
     else if (confirmLower) {
         userChoices = lowerCase;
         console.log(userChoices);
@@ -125,7 +124,7 @@ function generatePassword() {
         console.log(userChoices);
     };
 
-    // Empty variable for the password lenght
+    // Empty variable for the password lenghth
     var passwordBlank = [];
 
     // Loop for random selection
