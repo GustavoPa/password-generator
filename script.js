@@ -20,7 +20,7 @@ function generatePassword() {
     passwordLength = prompt("How many characters would you like your password to be? Choose between 8 and 128");
     console.log("Password length " + passwordLength);
     // check if user input is correct
-    if (passwordLength < 8 || passwordLength > 128) {
+    if (!passwordLength) {
         alert("please choose a number");
     } else if (passwordLength < 8 || passwordLength > 128) {
         passwordLength = prompt("Password must be between 8 and 128 charecters");
