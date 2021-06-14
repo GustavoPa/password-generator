@@ -41,6 +41,7 @@ function generatePassword() {
     // if the user doesnt choose
     if (!confirmLower && !confirmUpper && !confirmNumber && !confirmSpecial) {
         userChoices = alert("You must choose a criteria");
+
         // if the user picks 4 criterias
     } else if (confirmLower && confirmUpper && confirmNumber && confirmSpecial) {
         userChoices = lowerCase.concat(upperCase, numbers, special);
