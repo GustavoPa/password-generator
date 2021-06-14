@@ -16,17 +16,16 @@ var special = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", 
 
 // Generate password Function
 function generatePassword() {
-    // Ask the user to pick a criteria
+    // Ask the user to pick the password length
     passwordLength = prompt("How many characters would you like your password to be? Choose between 8 and 128");
     console.log("Password length " + passwordLength);
-
+    // check if user input is correct
     if (!passwordLength) {
         alert("please choose a number");
-
     } else if (passwordLength < 8 || passwordLength > 128) {
         passwordLength = prompt("Password must be between 8 and 128 charecters");
         console.log("Password length " + passwordLength);
-
+        //if yes let him choose his password chars and nums
     } else {
         confirmLower = confirm("would you like your password to have lowercase letters?");
         console.log("Lower case " + confirmLower);
@@ -112,9 +111,9 @@ function generatePassword() {
 
     // Loop for random selection
     for (var i = 0; i < passwordLength; i++) {
-        var allChoices = userChoices[Math.floor(Math.random() * userChoices.length)];
-        passwordBlank.push(allChoices);
-        console.log(allChoices);
+        var result = userChoices[Math.floor(Math.random() * userChoices.length)];
+        passwordBlank.push(result);
+        console.log(result);
     }
 
     // Join and return the password 
